@@ -24,11 +24,17 @@ function moverIzquierda(){
     personajeX= personajeX-10;
     actualizarPantalla();
 }
+function moverDerecha(){
+    personajeX= personajeX+10;
+    actualizarPantalla();
+}
+
 function actualizarPantalla(){
     limpiarCanvas();
     dibujarSuelo();
     dibujarPersonaje();
 }
+
 function limpiarCanvas(){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
