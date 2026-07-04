@@ -16,7 +16,7 @@ let vidas=3;
 let velocidadCaida=200;
 
 function iniciar(){
-    setInterval(bajarLimon, velocidadCaida);
+    let intervalo=setInterval(bajarLimon, velocidadCaida);
     dibujarSuelo();
     dibujarPersonaje();
     aparecerLimon();
@@ -81,6 +81,7 @@ function detectarAtrapado(){
             velocidadCaida = 100;
         } else if (puntaje == 10){
             alert("Con todos estos limones, puedes hacer una limonada");
+            clearInterval(intervalo);
         }
     }
 }
@@ -95,6 +96,7 @@ function detectarPiso(){
         alert("GAME OVER");
         vidas=3;
         mostrarEnSpan("txtVidas", vidas);
+        clearInterval(intervalo);
     }
 }
 
