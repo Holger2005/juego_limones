@@ -1,31 +1,168 @@
+:root {
+  --bg-principal: #090d16;
+  --bg-contenedor: #0f172a;
+  --bg-canvas: #020617;
+  --color-limon: #ccff00;
+  --color-neon-azul: #38bdf8;
+  --color-peligro: #f43f5e;
+  --fuente-arcade: 'Press Start 2P', cursive;
+  --fuente-texto: 'Rajdhani', sans-serif;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #0f172a;
-  color: white;
+  font-family: var(--fuente-texto);
+  background-color: var(--bg-principal);
+  background-image: 
+    radial-gradient(at 50% 0%, rgba(204, 255, 0, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(56, 189, 248, 0.08) 0px, transparent 50%);
+  color: #f8fafc;
   text-align: center;
   margin: 0;
   padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contenedor {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 700px;
+  width: 100%;
+  background: var(--bg-contenedor);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* --- Encabezado --- */
+.encabezado h1 {
+  font-family: var(--fuente-arcade);
+  font-size: 24px;
+  color: var(--color-limon);
+  text-shadow: 0 0 10px rgba(204, 255, 0, 0.6);
+  margin-bottom: 5px;
+}
+
+.eslogan {
+  font-style: italic;
+  color: #94a3b8;
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.autor {
+  font-size: 14px;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+/* --- Área de Juego (Canvas) --- */
 canvas {
-  background-color: #111827;
-  border: 3px solid #38bdf8;
+  background-color: var(--bg-canvas);
+  border: 4px solid var(--color-neon-azul);
+  border-radius: 12px;
   display: block;
-  margin: 20px auto;
+  margin: 0 auto;
+  box-shadow: 0 0 25px rgba(56, 189, 248, 0.3), inset 0 0 20px rgba(0,0,0,0.8);
+  max-width: 100%;
+  height: auto;
 }
 
+/* --- Interfaz y Marcadores --- */
 .panel {
-  margin: 20px 0;
+  display: flex;
+  justify-content: space-around;
+  margin: 25px 0;
 }
 
-.botones button {
-  margin: 5px;
-  padding: 10px 16px;
-  font-size: 16px;
+.marcador {
+  background: rgba(2, 6, 23, 0.6);
+  padding: 12px 25px;
+  border-radius: 10px;
+  border-left: 4px solid var(--color-limon);
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+}
+
+.marcador.vidas {
+  border-left-color: var(--color-peligro);
+}
+
+.etiqueta {
+  font-family: var(--fuente-arcade);
+  font-size: 10px;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+.valor {
+  font-family: var(--fuente-arcade);
+  font-size: 18px;
+  color: #fff;
+}
+
+#txtPuntaje {
+  color: var(--color-limon);
+  text-shadow: 0 0 8px rgba(204, 255, 0, 0.4);
+}
+
+#txtVidas {
+  color: var(--color-peligro);
+  text-shadow: 0 0 8px rgba(244, 63, 94, 0.4);
+}
+
+/* --- Botones --- */
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--fuente-texto);
+  font-weight: 700;
+  font-size: 18px;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-direccion {
+  background: #1e293b;
+  color: var(--color-neon-azul);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.btn-direccion:hover {
+  background: var(--color-neon-azul);
+  color: #000;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-reiniciar {
+  background: #1e293b;
+  color: #e2e8f0;
+  border: 1px solid rgba(226, 232, 240, 0.2);
+}
+
+.btn-reiniciar:hover {
+  background: #e2e8f0;
+  color: #000;
+  box-shadow: 0 0 15px rgba(226, 232, 240, 0.4);
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
 }

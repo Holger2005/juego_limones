@@ -1,28 +1,48 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Caza Estrellas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atrapar Limones - Cyber Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="limones.css">
   <script src="utils.js"></script>
- 
 </head>
 <body onload="iniciar()">
-  <div class="contenedor">
-    <h1>Atrapar Limones</h1>
-    <p>Si del cielo te caen limones ..... </p>
-    <h2>Autor: Holger Ordoñez</h2>
-    <canvas id="areaJuego" width="600" height="400"></canvas>
-    <div class="panel">
-      <p>Puntaje: <span id="txtPuntaje">0</span></p>
-      <p>Vidas: <span id="txtVidas">3</span></p>
-    </div>
-    <div class="botones">
-      <button onclick="moverIzquierda()">Izquierda</button>
-      <button onclick="moverDerecha()">Derecha</button>
-      <button onclick="reiniciar()">Reiniciar</button>
-    </div>
-  </div>
-  <script src="limones.js"></script>
 
+  <div class="contenedor">
+    <header class="encabezado">
+      <h1>Atrapar Limones</h1>
+      <p class="eslogan">Si del cielo te caen limones...</p>
+      <h2 class="autor">Autor: Holger Ordoñez</h2>
+    </header>
+
+    <main class="juego-container">
+      <canvas id="areaJuego" width="600" height="400"></canvas>
+    </main>
+
+    <footer class="interfaz">
+      <div class="panel">
+        <div class="marcador">
+          <span class="etiqueta">PUNTAJE</span>
+          <span id="txtPuntaje" class="valor">0</span>
+        </div>
+        <div class="marcador vidas">
+          <span class="etiqueta">VIDAS</span>
+          <span id="txtVidas" class="valor">3</span>
+        </div>
+      </div>
+
+      <div class="botones">
+        <button class="btn btn-direccion" onclick="moverIzquierda()">◀ Izquierda</button>
+        <button class="btn btn-reiniciar" onclick="reiniciar()">🔄 Reiniciar</button>
+        <button class="btn btn-direccion" onclick="moverDerecha()">Derecha ▶</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="limones.js"></script>
 </body>
 </html>
